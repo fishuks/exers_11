@@ -20,7 +20,8 @@ class Product:
         self._price = price
         self._country_code = country_code
     
-    def get_barcode(self):
+    @property
+    def barcode(self):
         """
         Get the barcode of the product.
 
@@ -29,7 +30,8 @@ class Product:
         """
         return self._barcode
 
-    def set_barcode(self, barcode):
+    @barcode.setter
+    def barcode(self, barcode):
         """
         Set a new barcode for the product.
 
@@ -38,7 +40,8 @@ class Product:
         """
         self._barcode = barcode
 
-    def get_price(self):
+    @property
+    def price(self):
         """
         Get the price of the product.
 
@@ -47,7 +50,8 @@ class Product:
         """
         return self._price
 
-    def set_price(self, price):
+    @price.setter
+    def price(self, price):
         """
         Set a new price for the product.
 
@@ -56,7 +60,8 @@ class Product:
         """
         self._price = price
 
-    def get_country_code(self):
+    @property
+    def country_code(self):
         """
         Get the country_code of the product.
 
@@ -65,7 +70,8 @@ class Product:
         """
         return self._country_code
 
-    def set_country_code(self, country_code):
+    @country_code.setter
+    def country_code(self, country_code):
         """
         Set a new country_code for the product.
 
@@ -92,7 +98,7 @@ class ShoppingCart:
         self._file_name = file_name
         self._products = []
 
-    def _load_data(self):
+    def load_data(self):
         """
         Load data to the shopping cart.
 
@@ -105,7 +111,7 @@ class ShoppingCart:
                 self._products.append(Product(barcode, float(price), country_code))
         
 
-    def _save_data(self):
+    def save_data(self):
         """
         Save data to the shopping cart.
 
@@ -114,7 +120,7 @@ class ShoppingCart:
         """
         with open(self._file_name, 'w') as file:
             for product in self._products:
-                file.write(f"{product.get_barcode()},{product.get_price()},{product.get_country_code()}\n")
+                file.write(f"{product.barcode},{product.price},{product.country_code}\n")
 
     def add_product(self, product):
         """
@@ -124,7 +130,6 @@ class ShoppingCart:
             product (Product): The product to add to the cart.
         """
         self._products.append(product)
-        self._save_data()
 
     def remove_product(self, barcode):
         """
@@ -134,9 +139,8 @@ class ShoppingCart:
             barcode (int): The product to remove to the cart.
         """
         for product in self._products:
-            if product.get_barcode() == barcode:
+            if product.barcode == barcode:
                 self._products.remove(product)
-                self._save_data()
                 return
 
     def get_total_price(self):
@@ -146,7 +150,7 @@ class ShoppingCart:
         Returns:
             float: The total price of all products in the cart.
         """
-        return sum(product.get_price() for product in self._products)
+        return sum(product.price for product in self._products)
     
 def main():
     """
@@ -164,10 +168,10 @@ def main():
 
         choice = input("Выберите действие: ")
         if choice == '1':
-            cart._load_data()
+            cart.load_data()
             print('Данные загружены')
         elif choice == '2':
-            cart._save_data()
+            cart.save_data()
             print('Данные сохранены')
         elif choice == '3':
             barcode = input("Введите штрих-код: ")
