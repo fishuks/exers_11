@@ -16,8 +16,8 @@ class AirConditioning:
     - switch_off(): Turns off the air conditioner and resets the temperature to None.
     - reset(): Resets the air conditioner to its default settings if it is on.
     - get_temperature(): Returns the current temperature if the air conditioner is on; otherwise, returns None.
-    - raise_temperature(): Raises the temperature of the air conditioner by 1 degree if the air conditioner is on and the temperature is below 43 degrees Celsius.
-    - lower_temperature(): Lowers the temperature of the air conditioner by 1 degree if the air conditioner is on and the temperature is above 0 degrees Celsius.
+    - raise_temperature(): Raises the temperature of the air conditioner 
+    - lower_temperature(): Lowers the temperature of the air conditioner 
     - __str__(): Returns a string representation of the air conditioner's state.
         
     '''
@@ -104,7 +104,7 @@ class AirConditioning:
 
     def raise_temperature(self):
         '''
-        Raises the temperature of the air conditioner by 1 degree if the air conditioner is on and the temperature is below 43 degrees Celsius.
+        Raises the temperature of the air conditioner by 1 degree if the air conditioner
 
         Parameters:
         None
@@ -119,7 +119,7 @@ class AirConditioning:
 
     def lower_temperature(self):
         '''
-        Lowers the temperature of the air conditioner by 1 degree if the air conditioner is on and the temperature is above 0 degrees Celsius.
+        Lowers the temperature of the air conditioner by 1 degree if the air conditioner
 
         Parameters:
         None
