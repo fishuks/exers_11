@@ -80,6 +80,12 @@ class Product:
         """
         self._country_code = country_code
 
+    def __str__(self):
+        return f'{self._barcode} {self._country_code} {self._price}'
+    
+    def __repr__(self):
+        return f'{self._barcode} {self._country_code} {self._price}'
+
 class ShoppingCart:
     """
     Class representing a shopping cart.
@@ -151,6 +157,12 @@ class ShoppingCart:
             float: The total price of all products in the cart.
         """
         return sum(product.price for product in self._products)
+    
+    def __str__(self):
+        return f'{self._products}'
+    
+    def __repr__(self):
+        return f'{self._products}'
     
 def main():
     """

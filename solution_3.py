@@ -121,6 +121,9 @@ class Track:
         A string representing the track.
         '''
         return f'Название {self.name}, {self.duration}, {self.artist}, {self.album}'
+    
+    def __repr__(self):
+        return f'Название {self.name}, {self.duration}, {self.artist}, {self.album}'
 
 
 class Album:
@@ -210,4 +213,7 @@ class Album:
             if track.name == track_name:
                 track.resume()
                 break
+
+    def __str__(self):
+        return f'{self.tracks}'
 
