@@ -1,5 +1,4 @@
 import time
-import datetime
 
 
 class Track:
@@ -38,7 +37,7 @@ class Track:
         album (str): The name of the album to which the track belongs.
         '''
         self.name = name
-        self.duration = duration
+        self.duration = int(duration)
         self.artist = artist
         self.year = year
         self.album = album
@@ -55,9 +54,9 @@ class Track:
         if not self.is_playing:
             self.is_playing = True
             self.start_time = time.time() - self.stop_time
-            print(f'▶️ : {self.name}, длительность трека {self._format_time(self.duration)}')
-
-
+            print(f'▶️ : {self.name}, длительность трека {self._format_time(self.duration)}\
+                    до конца трека {round(self.duration - self.stop_time)}')
+        
     def pause(self):
         '''
         Pauses the track.
@@ -104,6 +103,7 @@ class Track:
             if elapsed_time >= self.duration:
                 self.stop()
                 print(f'Трек {self.name} закончен')
+                self.is_playing = False  
                 return True
         return False
     

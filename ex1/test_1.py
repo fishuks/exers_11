@@ -1,4 +1,4 @@
-from solution_1 import *
+from air_conditioning import *
 
 conditioning = AirConditioning()
 print(conditioning)
