@@ -67,6 +67,7 @@ class Track:
             self.pause_duration += (self.pause_time - self.start_time)
             self.stop_time = self.pause_time - self.start_time
             print(f'⏸ : {self.name} на {self._format_time(self.stop_time)}')
+            
         else:
             print(f"Трек '{self.name}' не воспроизводится.")
 
