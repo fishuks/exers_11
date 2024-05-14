@@ -51,7 +51,7 @@ def main():
             print(f"Количесвто песен в альбоме: {len(alb.tracks)}")
             try:
                 nomber_of_song = input("Выберите номер песни которую хотите включить:")
-                alb.tracks[int(nomber_of_song)].play()
+                alb.tracks[int(nomber_of_song) - 1].play()
             except:
                 IndexError 
                 print("Такого номера не существует")

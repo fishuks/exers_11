@@ -55,7 +55,7 @@ class Track:
             self.is_playing = True
             self.start_time = time.time() - self.stop_time
             print(f'▶️ : {self.name}, длительность трека {self._format_time(self.duration)}\
-                    до конца трека {round(self.duration - self.stop_time)}')
+, до конца трека {round(self.duration - self.stop_time)}')
         
     def pause(self):
         '''
