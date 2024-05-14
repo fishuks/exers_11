@@ -58,9 +58,8 @@ def main():
 
         elif choice == "7":
             if name_of_alb and len(alb.tracks) != 0:
-                alb.tracks[int(nomber_of_song)].pause()
+                alb.tracks[int(nomber_of_song) - 1].pause()
         
-
         elif choice == "8":
             break
         else:
